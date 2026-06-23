@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jalur Langit Utama Tour n Travel - Umroh & Haji</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+         
+        /* ====== NAVBAR ====== */
+        .navbar {
+            background: #ffffff;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+        }
+        /* ---------- NAVBAR ADJUSTMENT ---------- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 125px;        /* Atur tinggi logo agar pas dengan navbar */
+    width: auto;         /* Lebar otomatis menyesuaikan agar tidak gepeng */
+    object-fit: contain; /* Memastikan gambar tetap tajam dan proporsional */
+    transition: transform 0.2s;
+}
+
+.logo-img:hover {
+    transform: scale(1.05); /* Efek sedikit membesar saat logo di-hover */
+}
+        .logo { font-size: 22px; font-weight: 800; color: #0f3b5e; }
+        .logo span { color: #eab308; }
+        .logo small { font-size: 12px; font-weight: 400; color: #64748b; display: block; }
+        .nav-links { display: flex; gap: 28px; list-style: none; font-weight: 600; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #1e293b; transition: 0.2s; }
+        .nav-links a:hover { color: #eab308; }
+        .btn-nav { background: #0f3b5e; color: white !important; padding: 10px 24px; border-radius: 30px; }
+        .btn-nav:hover { background: #1a4f79 !important; }
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 12px; padding: 16px; }
+            .nav-links { justify-content: center; gap: 14px; }
+        }
+
+        /* ====== HERO DENGAN TAG IMG ====== */
+        .hero-wrapper {
+            position: relative;
+            color: white;
+            text-align: center;
+            min-height: 500px;
+            overflow: hidden;
+        }
+        .hero-wrapper .hero-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        .hero-wrapper .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 59, 94, 0.70);
+            z-index: 1;
+        }
+        .hero-wrapper .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 100px 40px 120px;
+        }
+        .hero-wrapper .hero-content h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .hero-wrapper .hero-content h1 span {
+            color: #facc15;
+        }
+        .hero-wrapper .hero-content h1 small {
+            font-size: 18px;
+            font-weight: 400;
+            display: block;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+        .hero-wrapper .hero-content p {
+            font-size: 20px;
+            max-width: 640px;
+            margin: 16px auto 32px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        .hero-wrapper .hero-content .btn-hero {
+            background: #facc15;
+            color: #0f3b5e;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .hero-wrapper .hero-content .btn-hero:hover {
+            background: #eab308;
+            transform: scale(1.02);
+        }
+        .hero-wrapper .hero-content .badge-group {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .hero-wrapper .hero-content .badge-group .badge-item {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hero-wrapper .hero-content .badge-group .badge-item i {
+            color: #facc15;
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .hero-wrapper .hero-content { padding: 60px 20px 80px; }
+            .hero-wrapper .hero-content h1 { font-size: 28px; }
+            .hero-wrapper .hero-content p { font-size: 17px; }
+            .hero-wrapper .hero-content .badge-group .badge-item { padding: 8px 16px; font-size: 13px; }
+        }
+
+        /* ====== SECTION UMUM ====== */
+        .section { padding: 60px 20px; }
+        .section-title { font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 8px; }
+        .section-sub { text-align: center; color: #64748b; margin-bottom: 40px; font-size: 18px; }
+
+        /* ====== PAKET ====== */
+        .package-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+        }
+        .package-card {
+            background: white; border-radius: 20px; padding: 28px 24px 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #e9edf2;
+            transition: 0.2s;
+        }
+        .package-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+        .package-card .badge {
+            background: #facc15; color: #0f3b5e; font-weight: 700; padding: 4px 14px;
+            border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 12px;
+        }
+        .package-card h3 { font-size: 22px; margin-bottom: 8px; }
+        .package-card .price { font-size: 28px; font-weight: 800; color: #0f3b5e; margin: 12px 0; }
+        .package-card .price small { font-size: 14px; font-weight: 400; color: #64748b; }
+        .package-card ul { list-style: none; margin: 16px 0 24px; }
+        .package-card ul li { padding: 6px 0; display: flex; align-items: center; gap: 10px; font-size: 15px; }
+        .package-card ul li i { color: #16a34a; width: 18px; }
+        .btn-pesan {
+            background: #0f3b5e; color: white; border: none; padding: 14px 0; width: 100%;
+            border-radius: 50px; font-size: 16px; font-weight: 700; cursor: pointer;
+            transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .btn-pesan:hover { background: #1a4f79; }
+
+        /* ====== GALERI ====== */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+        }
+        .gallery-grid .gallery-item {
+            border-radius: 16px; height: 180px; overflow: hidden;
+        }
+        .gallery-grid .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover; transition: 0.3s;
+        }
+        .gallery-grid .gallery-item img:hover { transform: scale(1.05); }
+
+        /* ====== TESTIMONI ====== */
+        .testimoni-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 20px;
+        }
+        .testi-card {
+            background: white; padding: 24px; border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04); border: 1px solid #e9edf2;
+        }
+        .testi-card .stars { color: #facc15; margin-bottom: 8px; }
+        .testi-card p { font-style: italic; margin-bottom: 12px; color: #334155; }
+        .testi-card .nama { font-weight: 700; }
+
+        /* ====== FORM + QRIS ====== */
+        .form-qris-wrapper {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            background: white; padding: 40px; border-radius: 24px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06); margin-top: 20px;
+        }
+        @media (max-width: 768px) { .form-qris-wrapper { grid-template-columns: 1fr; padding: 24px; } }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px 16px; border: 1px solid #d1d9e6; border-radius: 12px;
+            font-size: 15px; font-family: inherit; transition: 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; border-color: #0f3b5e;
+        }
+        .qris-box {
+            background: #f1f5f9; border-radius: 20px; padding: 30px;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .qris-box .qris-placeholder {
+            width: 200px; height: 200px; background: white; border-radius: 16px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            border: 2px dashed #94a3b8; margin-bottom: 16px;
+        }
+        .qris-box .qris-placeholder i { font-size: 64px; color: #0f3b5e; margin-bottom: 8px; }
+        .qris-box .qris-placeholder span { font-size: 14px; color: #64748b; }
+        .qris-box .total-bayar { font-size: 26px; font-weight: 800; color: #0f3b5e; margin: 8px 0; }
+        .qris-box .rekening-box {
+            background: white; padding: 16px; border-radius: 12px; width: 100%; margin-top: 12px;
+        }
+        .qris-box .rekening-box strong { color: #0f3b5e; }
+        .btn-qris {
+            background: #16a34a; color: white; border: none; padding: 14px 32px;
+            border-radius: 50px; font-size: 16px; font-weight: 700; cursor: pointer;
+            transition: 0.2s; display: inline-flex; align-items: center; gap: 10px; margin-top: 12px;
+        }
+        .btn-qris:hover { background: #15803d; }
+
+        /* ====== TENTANG KAMI ====== */
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+        }
+        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+        .about-grid .about-image {
+            border-radius: 20px; height: 260px; overflow: hidden;
+        }
+        .about-grid .about-image img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        /* ====== FOOTER ====== */
+        .footer {
+            background: #0f172a; color: #cbd5e1; padding: 40px 20px; text-align: center; margin-top: 40px;
+        }
+        .footer a { color: #facc15; text-decoration: none; }
+        .footer .footer-logo { font-size: 22px; font-weight: 700; color: white; }
+        .footer .footer-logo span { color: #facc15; }
+        .footer .footer-logo small { font-size: 12px; font-weight: 400; color: #94a3b8; display: block; }
+    </style>
+</head>
+<body>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="navbar">
+    <a href="#home" class="logo-container">
+        <img src="jalur.png" alt="Logo Berkah Tour" class="logo-img">
+    </a>
+    <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#paket">Paket</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#pesan" class="btn-nav">Pesan Sekarang</a></li>
+    </ul>
+</nav>
+
+<!-- ====== HERO DENGAN GAMBAR ====== -->
+<section id="home" class="hero-wrapper">
+    <img class="hero-img" 
+         src="hero-bg.png" 
+         alt="Masjid Nabawi - Background">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>
+            Jalur Langit Utama 
+            <span>Tour n Travel</span>      
+        </h1>
+        <p>Nikmati perjalanan ibadah yang nyaman, aman, dan penuh makna bersama Jalur Langit Utama Tour n Travel. Terdaftar resmi Kemenag RI.</p>
+        <a href="#pesan" class="btn-hero"><i class="fas fa-arrow-right"></i> Pesan Sekarang</a>
+        <div class="badge-group">
+            <span class="badge-item"><i class="fas fa-check-circle"></i> Terdaftar Kemenag</span>
+            <span class="badge-item"><i class="fas fa-users"></i> 500+ Jamaah</span>
+            <span class="badge-item"><i class="fas fa-shield-alt"></i> Asuransi Perjalanan</span>
+            <span class="badge-item"><i class="fas fa-phone"></i> 24/7 Support</span>
+        </div>
+    </div>
+</section>
+
+<!-- ====== PAKET UMROH ====== -->
+<section id="paket" class="section">
+    <div class="container">
+        <h2 class="section-title">Paket Umroh Pilihan</h2>
+        <p class="section-sub">Pilih paket yang sesuai dengan kebutuhan ibadah Anda</p>
+        <div class="package-grid">
+            
+            <!-- Paket 1 -->
+            <div class="package-card">
+                <span class="badge">POPULER</span>
+                <h3>Paket Silver</h3>
+                <div class="price">Rp 22.500.000 <small>/orang</small></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 9 Hari / 8 Malam</li>
+                    <li><i class="fas fa-check"></i> Hotel bintang 4</li>
+                    <li><i class="fas fa-check"></i> Pesawat eksekutif</li>
+                    <li><i class="fas fa-check"></i> Pendamping ibadah</li>
+                </ul>
+                <!-- Fungsi Otomatis Checkout Langsung Aktif -->
+                <button class="btn-pesan" onclick="checkoutLangsung(22500000, '22500000')">
+                    <i class="fas fa-shopping-cart"></i> Pesan & Bayar
+                </button>
+            </div>
+            
+            <!-- Paket 2 -->
+            <div class="package-card">
+                <span class="badge" style="background:#0f3b5e;color:white;">BEST VALUE</span>
+                <h3>Paket Gold</h3>
+                <div class="price">Rp 29.900.000 <small>/orang</small></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 12 Hari / 11 Malam</li>
+                    <li><i class="fas fa-check"></i> Hotel bintang 5</li>
+                    <li><i class="fas fa-check"></i> Pesawat eksekutif</li>
+                    <li><i class="fas fa-check"></i> Free perlengkapan ihram</li>
+                </ul>
+                <button class="btn-pesan" onclick="checkoutLangsung(29900000, '29900000')">
+                    <i class="fas fa-shopping-cart"></i> Pesan & Bayar
+                </button>
+            </div>
+            
+            <!-- Paket 3 -->
+            <div class="package-card">
+                <span class="badge" style="background:#eab308;color:#0f3b5e;">VIP</span>
+                <h3>Paket Platinum</h3>
+                <div class="price">Rp 39.500.000 <small>/orang</small></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 14 Hari / 13 Malam</li>
+                    <li><i class="fas fa-check"></i> Hotel bintang 5+</li>
+                    <li><i class="fas fa-check"></i> Pesawat business class</li>
+                    <li><i class="fas fa-check"></i> Pendamping khusus</li>
+                </ul>
+                <button class="btn-pesan" onclick="checkoutLangsung(39500000, '39500000')">
+                    <i class="fas fa-shopping-cart"></i> Pesan & Bayar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ====== GALERI ====== -->
+<section id="galeri" class="section" style="background:#f1f5f9; border-radius: 40px 0 0 0;">
+    <div class="container">
+        <h2 class="section-title">Galeri & Testimoni</h2>
+        <p class="section-sub">Kesaksian jamaah yang telah berangkat bersama Jalur Langit Utama Tour n Travel</p>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="hero-bg.png" alt="Ka'bah"></div>
+            <div class="gallery-item"><img src="nabawi.png" alt="Masjid Nabawi"></div>
+            <div class="gallery-item"><img src="tawaf.png" alt="Thawaf"></div>
+            <div class="gallery-item"><img src="arofah.png" alt="Jamaah"></div>
+        </div>
+        <div class="testimoni-grid">
+            <div class="testi-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Pelayanan sangat memuaskan, semua urusan diurus dengan baik. Jamaah merasa aman dan nyaman."</p>
+                <span class="nama">- Ibu Siti, Jakarta</span>
+            </div>
+            <div class="testi-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Paket Gold sangat worth it. Hotel dekat masjid, pembimbing sangat sabar dan berilmu."</p>
+                <span class="nama">- Bapak Ahmad, Bandung</span>
+            </div>
+            <div class="testi-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Proses pendaftaran mudah, pembayaran via QRIS praktis. Akan repeat order untuk umroh berikutnya."</p>
+                <span class="nama">- Ibu Dewi, Surabaya</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== TENTANG KAMI ====== -->
+<section id="tentang" class="section">
+    <div class="container">
+        <div class="about-grid">
+            <div>
+                <h2 style="font-size:32px; margin-bottom:16px;">Tentang Jalur Langit Utama Tour n Travel</h2>
+                <p style="font-size:17px; line-height:1.7; color:#334155; margin-bottom:16px;">
+                    Jalur Langit Utama Tour n Travel adalah biro perjalanan umroh dan haji resmi yang telah terdaftar di Kementerian Agama RI. 
+                    Kami berkomitmen memberikan pelayanan terbaik, mulai dari pendaftaran, pembimbingan ibadah, hingga kepulangan jamaah.
+                </p>
+                <p style="font-size:17px; line-height:1.7; color:#334155;">
+                    <i class="fas fa-check-circle" style="color:#16a34a;"></i> Izin resmi Kemenag No. 123/D.IV/2024<br>
+                    <i class="fas fa-check-circle" style="color:#16a34a;"></i> Berpengalaman -+ tahun<br>
+                    <i class="fas fa-check-circle" style="color:#16a34a;"></i> 98% jamaah puas dengan layanan kami
+                </p>
+                <div style="margin-top:24px; display:flex; gap:20px; flex-wrap:wrap;">
+                    <div><i class="fas fa-phone" style="color:#0f3b5e;"></i> 0851-2154-4486</div>
+                    <div><i class="fas fa-envelope" style="color:#0f3b5e;"></i>  jalurlangitutama01@gmail.com</div>
+                    <div><i class="fab fa-whatsapp" style="color:#16a34a;"></i> 0851-2154-4486</div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="mht.jpg" alt="Kantor Jalur Langit Utama">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== FORM PEMESANAN + QRIS ====== -->
+<!--section id="pesan" class="section" style="background:#f1f5f9; border-radius: 40px 0 0 0;">
+    <div class="container">
+        <h2 class="section-title">Pesan & Bayar dengan QRIS</h2>
+        <p class="section-sub">Isi formulir di bawah ini, lalu bayar via QRIS atau transfer ke rekening kami</p>
+
+        <div class="form-qris-wrapper">
+            <!-- Kiri: Formulir -->
+            <!--div>
+                <form id="orderForm" onsubmit="return handleSubmit(event)">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Nama Lengkap</label>
+                        <input type="text" placeholder="Contoh: Ahmad Fauzi" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" placeholder="ahmad@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fab fa-whatsapp"></i> Nomor WhatsApp</label>
+                        <input type="tel" placeholder="0812-9310-8522" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-box"></i> Pilih Paket</label>
+                        <select id="paket" onchange="updateTotal()" required>
+                            <option value="22500000">Paket Silver - Rp 22.500.000</option>
+                            <option value="29900000" selected>Paket Gold - Rp 29.900.000</option>
+                            <option value="39500000">Paket Platinum - Rp 39.500.000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-users"></i> Jumlah Jamaah</label>
+                        <input type="number" id="jamaah" value="1" min="1" onchange="updateTotal()" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-pen"></i> Catatan (opsional)</label>
+                        <textarea rows="2" placeholder="Misal: request room connecting, dll"></textarea>
+                    </div>
+                    <button type="submit" class="btn-pesan" style="background:#16a34a; gap:12px;">
+                        <i class="fas fa-paper-plane"></i> Kirim Pesanan
+                    </button>
+                </form>
+            </div>
+
+            <!-- Kanan: QRIS + Rekening -->
+            <!--div class="qris-box">
+                <h3 style="font-size:20px; color:#0f3b5e; margin-bottom:4px;">💳 Metode Pembayaran</h3>
+                <p style="color:#475569; font-size:14px; margin-bottom:12px;">Scan QRIS atau transfer ke rekening</p>
+
+                <div class="qris-placeholder">
+                    <i class="fas fa-qrcode"></i>
+                    <span>QRIS Code</span>
+                    <span style="font-size:11px; color:#94a3b8;">(Scan untuk bayar)</span>
+                </div>
+                <p style="font-size:12px; color:#94a3b8; margin-bottom:4px;">Scan via: GoPay • OVO • DANA • LinkAja • Mobile Banking</p>
+
+                <div class="total-bayar">
+                    Total: Rp <span id="totalDisplay">29.900.000</span>
+                </div>
+
+                <div class="rekening-box">
+                    <p><strong>🏦 Transfer ke Rekening:</strong></p>
+                    <p style="font-size:18px; font-weight:700; color:#0f3b5e;">BCA 123-456-7890</p>
+                    <p style="font-size:14px; color:#475569;">a.n. Jalur Langit Utama Tour</p>
+                    <p style="font-size:13px; color:#94a3b8; margin-top:4px;">
+                        <i class="fab fa-whatsapp"></i> Konfirmasi via WA: 0812-9310-8522
+                    </p>
+                </div>
+
+                <button class="btn-qris" onclick="alert('✅ QRIS berhasil di-generate!\nSilakan scan QRIS di atas untuk menyelesaikan pembayaran.')">
+                    <i class="fas fa-qrcode"></i> Tampilkan QRIS
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!====== SECTION PEMESANAN & PEMBAYARAN ====== -->
+<section id="pesan" class="section" style="padding: 60px 20px; background: #f8fafc;">
+    <div class="container" style="max-width: 800px; margin: 0 auto;">
+        
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 class="section-title" style="color: #0f3b5e; font-size: 28px; font-weight: 700;">Konfirmasi Pendaftaran & Pembayaran</h2>
+            <p style="color: #64748b;">Paket Anda telah dipilih. Silakan pilih metode pembayaran di bawah untuk langsung menyelesaikan pendaftaran.</p>
+        </div>
+
+        <!-- Form Tersembunyi/Otomatis Terisi -->
+        <div style="background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 25px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                <div>
+                    <label style="display:block; font-weight:600; margin-bottom:5px; color:#334155;">Pilihan Paket:</label>
+                    <select id="form-paket" onchange="hitungTotalOtomatis()" style="width:100%; padding:10px; border-radius:8px; border:1px solid #cbd5e1; background:#f1f5f9;" disabled>
+                        <option value="22500000">Paket Silver - Rp 22.500.000</option>
+                        <option value="29900000">Paket Gold - Rp 29.900.000</option>
+                        <option value="39500000">Paket Platinum - Rp 39.500.000</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display:block; font-weight:600; margin-bottom:5px; color:#334155;">Jumlah Jamaah:</label>
+                    <input type="number" id="jamaah" value="1" min="1" oninput="hitungTotalOtomatis()" style="width:100%; padding:10px; border-radius:8px; border:1px solid #cbd5e1;">
+                </div>
+            </div>
+            
+            <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; border-left: 4px solid #0284c7; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 700; color: #0c4a6e;">TOTAL TAGIHAN:</span>
+                <span style="font-size: 22px; font-weight: 800; color: #0284c7;">Rp <span id="totalDisplay">22.500.000</span></span>
+            </div>
+        </div>
+
+        <!-- PILIHAN METODE PEMBAYARAN LANGSUNG -->
+        <h3 style="font-size: 18px; font-weight: 700; color: #0f3b5e; margin-bottom: 15px; text-align: center;">Silakan Pilih Metode Pembayaran:</h3>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+            <!-- Tombol Opsi Bank -->
+            <button type="button" onclick="pilihMetode('bank')" style="background: white; border: 2px solid #0284c7; padding: 20px; border-radius: 12px; cursor: pointer; text-align: center; transition: 0.3s;">
+                <i class="fas fa-university" style="font-size: 30px; color: #0284c7; margin-bottom: 10px;"></i>
+                <div style="font-weight: 700; color: #0f3b5e;">Transfer Bank (BCA)</div>
+            </button>
+            
+            <!-- Tombol Opsi QRIS -->
+            <button type="button" onclick="pilihMetode('qris')" style="background: white; border: 2px solid #eab308; padding: 20px; border-radius: 12px; cursor: pointer; text-align: center; transition: 0.3s;">
+                <i class="fas fa-qrcode" style="font-size: 30px; color: #eab308; margin-bottom: 10px;"></i>
+                <div style="font-weight: 700; color: #0f3b5e;">Scan QRIS (Otomatis)</div>
+            </button>
+        </div>
+
+        <!-- AREA DETAIL INSTRUKSI BAYAR (Muncul Sesuai Tombol yang Diklik) -->
+        <div id="detail-pembayaran" style="display: none; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); text-align: center; border: 1px solid #e2e8f0;">
+            
+            <!-- Konten Bank (Default Tersembunyi) -->
+            <div id="konten-bank" style="display: none;">
+                <h4 style="margin-0; color:#0f3b5e; font-size: 18px;">Rekening Pembayaran PT JLU</h4>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 15px;">Silakan transfer tepat sesuai total tagihan ke rekening berikut:</p>
+                <div style="background: #f8fafc; padding: 15px; border-radius: 8px; font-size: 18px; font-weight: 700; color: #0f3b5e; letter-spacing: 1px; margin-bottom: 10px;">
+                    BCA: 123-456-7890 <br>
+                    <span style="font-size: 14px; font-weight: 500; color:#64748b;">a.n PT Jalur Langit Utama</span>
+                </div>
+            </div>
+
+            <!-- Konten QRIS (Default Tersembunyi) -->
+            <div id="konten-qris" style="display: none;">
+                <h4 style="margin-0; color:#0f3b5e; font-size: 18px;">Scan QRIS Resmi PT JLU</h4>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 15px;">Bisa discan menggunakan GoPay, OVO, Dana, LinkAja, atau Mobile Banking</p>
+                <!-- Ganti link gambar di bawah dengan gambar QRIS asli travel Ketua -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PT-Jalur-Langit-Utama" alt="QRIS JLU" style="width: 200px; height: 200px; margin: 0 auto 15px; display: block; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            </div>
+
+            <!-- Tombol Konfirmasi WA -->
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">Sudah melakukan transfer? Klik tombol di bawah untuk kirim bukti transaksi.</p>
+            <a href="https://wa.me/6285121544486?text=Halo%20Admin%20JLU%20Tour%20and%20Travel,%20saya%20sudah%20melakukan%20pembayaran%20paket%20umroh." target="_blank" style="display: inline-block; background: #22c55e; color: white; padding: 12px 25px; border-radius: 8px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);">
+                <i class="fab fa-whatsapp"></i> Konfirmasi Pembayaran via WhatsApp
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-====== SECTION LOKASI KANTOR ====== -->
+<section id="lokasi" style="padding: 150px 50px; max-width: 500px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 32px; font-weight: 700; color: #0369a1; margin-bottom: 12px;">Lokasi Kantor Kami</h2>
+    <p style="color: #64748b; margin-bottom: 40px; font-size: 16px;">Kunjungi kantor kami untuk konsultasi langsung mengenai paket Umroh & Travel</p>
+    
+    <!-- Kontainer Peta agar Responsif -->
+    <div class="maps-container" style="position: relative; padding-bottom: 300px; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.15); border: 1px solid #bae6fd;">
+        
+        <!-- Tempel (PAS-TE) Kode iFrame Google Maps Ketua di bawah ini -->
+        <!-- Catatan: Ganti kode <iframe ...> di bawah ini dengan kode yang Ketua salin dari Google Maps asli -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1505749255293!2d106.8667399736843!3d-6.243878393744461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3091fd1cb6b%3A0xb074f19a3d26765!2sMTH%20Square%20Office%20%26%20Apartment%2C%20Jl.%20Letjen%20M.T.%20Haryono%20No.Kav%2010%20Ground%20Floor%20(GF)%20A4%20A%2C%20RT.6%2FRW.12%2C%20Bidara%20Cina%2C%20Kecamatan%20Jatinegara%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013330!5e0!3m2!1sen!2sid!4v1782246922585!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+</section>
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+    <div class="footer-logo">
+        Jalur Langit Utama <span>Tour n Travel</span>        
+    </div>
+    <p style="margin: 8px 0 4px;">MTH SQUARE GROUND FLOOR (GF) A4 A</p>
+<p style="margin: 8px 0 4px;">JALAN LETJEN M.T.HARYONO KAV 10</p>
+<p style="margin: 8px 0 4px;">Desa/Kelurahan Bidara Cina, Kec. Jatinegara, Kota Adm. Jakarta Timur,</p>
+<p style="margin: 8px 0 4px;">Provinsi DKI Jakarta,</p>
+<p style="margin: 8px 0 4px;">Kode Pos: 13330</p>
+    <p style="margin-bottom:12px;">
+        <i class="fas fa-phone"></i> 0851-2154-4486 &nbsp;|&nbsp; 
+        <i class="fab fa-whatsapp"></i> 0851-2154-4486
+    </p>
+    <p style="font-size:14px; opacity:0.7;">
+        &copy; 2026 Jalur Langit Utama Tour n Travel. All rights reserved. | 
+        <a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a>
+    </p>
+</footer>
+
+<!-- ====== JAVASCRIPT ====== -->
+<script>
+    function pilihMetode(jenis) {
+    // Tampilkan kotak utama detail pembayaran
+    document.getElementById('detail-pembayaran').style.display = 'block';
+    
+    const bankSection = document.getElementById('konten-bank');
+    const qrisSection = document.getElementById('konten-qris');
+    
+    if (jenis === 'bank') {
+        bankSection.style.display = 'block';
+        qrisSection.style.display = 'none';
+    } else if (jenis === 'qris') {
+        bankSection.style.display = 'none';
+        qrisSection.style.display = 'block';
+    }
+    
+    // Scroll sedikit ke bawah agar jemaah fokus ke instruksi bayar yang terbuka
+    document.getElementById('detail-pembayaran').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+// 1. Fungsi Tombol Pesan Paket (Membuka rincian & scroll otomatis)
+function checkoutLangsung(harga, valueOption) {
+    // Pilih paket secara otomatis di element select form
+    const selectElement = document.getElementById('form-paket');
+    if (selectElement) {
+        selectElement.value = valueOption;
+    }
+    
+    // Jalankan perhitungan total tagihan secara real-time
+    hitungTotalOtomatis();
+    
+    // LANGSUNG BUKA PANEL PEMBAYARAN (Hilangkan Overlay Lock)
+    const overlay = document.getElementById('payment-overlay');
+    if (overlay) {
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 300);
+    }
+    
+    // Scroll layar secara mulus ke area pembayaran QRIS / Bank
+    document.getElementById('pesan').scrollIntoView({ behavior: 'smooth' });
+}
+    
+// 2. Fungsi Hitung Total (Nama sudah disesuaikan agar pas dengan tombol di atas)
+function hitungTotalOtomatis() {
+    // Pastikan ID 'form-paket' atau 'paket' di select-option Ketua sudah sesuai
+    const paketElement = document.getElementById('form-paket') || document.getElementById('paket');
+    if (!paketElement) return;
+
+    const harga = parseInt(paketElement.value) || 0;
+    const jamaah = parseInt(document.getElementById('jamaah').value) || 1;
+    const total = harga * jamaah;
+    
+    const displayElement = document.getElementById('totalDisplay');
+    if (displayElement) {
+        displayElement.textContent = total.toLocaleString('id-ID');
+    }
+}
+
+// 3. Fungsi Submit Form
+function handleSubmit(e) {
+    e.preventDefault();
+    alert('✅ Pesanan berhasil dikirim!\n\nSilakan lakukan pembayaran via QRIS atau transfer ke rekening BCA.\n\n📱 Konfirmasi pembayaran ke WA 0851-2154-4486');
+    return false;
+}
+
+// Jalankan fungsi hitung pertama kali saat halaman dimuat
+hitungTotalOtomatis();
+
+// 4. Efek Scroll Halus untuk Menu Navigasi (Navbar)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
